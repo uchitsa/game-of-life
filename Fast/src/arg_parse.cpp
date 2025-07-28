@@ -3,15 +3,19 @@
 
 #include "../include/arg_parse.h"
 
+#include <cctype>
+#include <cstdlib>
+#include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "../include/args_process.h"
 #include "../include/args_valid.h"
-const int size = 20;
+const int grid_size = 20;
 pair<int, int> Parse::get_size(string const &s) {
   if (s.length() == 0) {
-    return {size, size};
+    return {grid_size, grid_size};
   }
 
   Valid v = Valid();
