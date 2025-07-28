@@ -3,6 +3,13 @@
 
 #include "../include/parse.h"
 
+#include <cctype>    // for isdigit()
+#include <cstdlib>   // for exit()
+#include <iostream>  // for std::cout, std::endl
+#include <string>    // for std::string
+#include <utility>   // for std::pair
+#include <vector>    // for std::vector
+
 int Parse::length() const { return n; }
 
 int Parse::width() const { return m; }
@@ -32,12 +39,12 @@ pair<int, int> Parse::point(const string &s) const {
     auto res = split(s);
     if (res.first > n || res.second > m) {
       cout << "Incorrect input in put";
-      exit(0);
+      throw std::runtime_error("Error message");
     }
     return res;
   }
   cout << "Incorrect input in put";
-  exit(0);
+  throw std::runtime_error("Error message");
 }
 
 pair<int, int> Parse::size(const string &s) {
@@ -45,17 +52,17 @@ pair<int, int> Parse::size(const string &s) {
     return split(s);
   }
   cout << "Incorrect input in size";
-  exit(0);
+  throw std::runtime_error("Error message");
 }
 
 void Parse::positive() {
   if (vm["batch"].as<int>() <= 0) {
     cout << "Incorrect batch input" << endl;
-    exit(0);
+    throw std::runtime_error("Error message");
   }
   if (vm["sleep"].as<int>() <= 0) {
     cout << "Incorrect sleep input" << endl;
-    exit(0);
+    throw std::runtime_error("Error message");
   }
 }
 

@@ -3,7 +3,13 @@
 
 #include "../include/field.h"
 
+#include <cctype>    // for isdigit()
+#include <cstdlib>   // for exit()
+#include <iostream>  // for std::cout, std::endl
+#include <string>    // for std::string
+#include <utility>   // for std::pair
 #include <utility>
+#include <vector>  // for std::vector
 
 const int add = 5;
 

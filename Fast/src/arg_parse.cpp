@@ -21,7 +21,7 @@ pair<int, int> Parse::get_size(string const &s) {
     return p.convert(p.split(s));
   }
   cout << "Incorrect arguments in size option" << endl;
-  exit(0);
+  throw std::runtime_error("Error message");
 }
 
 vector<pair<int, int>> Parse::get_alive(vector<string> const &a, int n, int m) {
@@ -33,12 +33,12 @@ vector<pair<int, int>> Parse::get_alive(vector<string> const &a, int n, int m) {
       pair<int, int> x = p.convert(p.split(i));
       if (x.first <= 0 || x.first > n || x.second <= 0 || x.second > m) {
         cout << "You entered cells out of range of the grid " << i << endl;
-        exit(0);
+        throw std::runtime_error("Error message");
       }
       res.emplace_back(x);
     } else {
       cout << "You entered incorrect arguments in put option" << endl;
-      exit(0);
+      throw std::runtime_error("Error message");
     }
   }
   return res;

@@ -3,6 +3,13 @@
 
 #include <unistd.h>
 
+#include <cctype>    // for isdigit()
+#include <cstdlib>   // for exit()
+#include <iostream>  // for std::cout, std::endl
+#include <string>    // for std::string
+#include <utility>   // for std::pair
+#include <vector>    // for std::vector
+
 #include "../include/field.h"
 #include "../include/objects.h"
 #include "../include/parse.h"
